@@ -1,10 +1,10 @@
 package microservices.book.socialmultiplication.domain;
 
-import lombok.Value;
+import lombok.*;
 
-@Value
-public class MultiplicationResultAttempt {
-    User user;
-    Multiplication multiplication;
-    int resultAttempt;
+
+public record MultiplicationResultAttempt(User user,
+                                          Multiplication multiplication,
+                                          int resultAttempt) {
+
 }

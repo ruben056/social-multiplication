@@ -36,12 +36,12 @@ class MultiplicationControllerTest {
     @Test
     public void getMultiplicationTest() throws Exception {
         BDDMockito.given(multiplicationService.createRandomMultiplication())
-                .willReturn(Multiplication.create(70,20));
+                .willReturn(new Multiplication(70,20));
 
         MockHttpServletResponse response = mvc.perform(get("/multiplications/random").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.getContentAsString()).isEqualTo(jacksonTester.write(Multiplication.create(70,20)).getJson());
+        assertThat(response.getContentAsString()).isEqualTo(jacksonTester.write(new Multiplication(70,20)).getJson());
     }
 }

@@ -15,7 +15,7 @@ public class MultiplicationServiceImpl implements MultiplicationService {
 
     @Override
     public Multiplication createRandomMultiplication() {
-        return Multiplication.create(
+        return new Multiplication(
                 randomGeneratorService.generateRandomFactorBetween11and99(),
                 randomGeneratorService.generateRandomFactorBetween11and99()
         );
@@ -23,6 +23,6 @@ public class MultiplicationServiceImpl implements MultiplicationService {
 
     @Override
     public boolean checkAttempt(MultiplicationResultAttempt resultAttempt) {
-        return resultAttempt.getResultAttempt() == resultAttempt.getMultiplication().getResult();
+        return resultAttempt.resultAttempt() == resultAttempt.multiplication().getResult();
     }
 }

@@ -26,15 +26,15 @@ class MultiplicationServiceTest {
 
         Multiplication actual = multiplicationService.createRandomMultiplication();
 
-        assertThat(actual.getFactorA()).isEqualTo(50);
-        assertThat(actual.getFactorB()).isEqualTo(30);
+        assertThat(actual.factorA()).isEqualTo(50);
+        assertThat(actual.factorB()).isEqualTo(30);
         assertThat(actual.getResult()).isEqualTo(1500);
     }
 
     @Test
     public void checkCorrectAttemptTest() {
 
-        Multiplication multiplication = Multiplication.create(50,60);
+        Multiplication multiplication = new Multiplication(50,60);
         User user = new User("john_doe");
         MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 3000);
 
@@ -46,7 +46,7 @@ class MultiplicationServiceTest {
     @Test
     public void checkWrongAttemptTest() {
 
-        Multiplication multiplication = Multiplication.create(50, 60);
+        Multiplication multiplication = new Multiplication(50, 60);
         User user = new User("john_doe");
         MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 3010);
 

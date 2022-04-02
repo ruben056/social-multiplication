@@ -1,8 +1,5 @@
 package microservices.book.socialmultiplication.domain;
 
-import lombok.Value;
+public record User(String alias) {
 
-@Value
-public class User {
-    String alias;
 }
