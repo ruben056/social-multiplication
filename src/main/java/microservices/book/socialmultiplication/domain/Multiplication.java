@@ -1,13 +1,16 @@
 package microservices.book.socialmultiplication.domain;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Value;
 
 @Value()
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Multiplication {
 
-    private int factorA;
-    private int factorB;
-    private int result;
+    int factorA;
+    int factorB;
+    int result;
 
     public static Multiplication create(int factorA, int factorB) {
         return new Multiplication(factorA, factorB, factorA * factorB);
